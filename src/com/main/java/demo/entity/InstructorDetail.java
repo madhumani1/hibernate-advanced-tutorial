@@ -41,9 +41,12 @@ public class InstructorDetail {
 	
 	/**
 	 * add new field to make bidirectional 1-1 relation with Instructor, add @onetoone annotation.
-	 * cascade ensuer if I delete an Instructor detail, it automatically deletes InstructorDetail
+	 * cascade ensure if I delete an Instructor detail, it automatically deletes InstructorDetail
+	 * 
+	 * change cascade from all to detach, merge, persist and refresh. 
+	 * it will ensure that deleting instructor record will NOT remove instructordetail
 	 */
-	@OneToOne(mappedBy = "instructorDetail", cascade=CascadeType.ALL)
+	@OneToOne(mappedBy = "instructorDetail", cascade= {CascadeType.DETACH, CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
 	private Instructor instructor; 
 
 	/**
