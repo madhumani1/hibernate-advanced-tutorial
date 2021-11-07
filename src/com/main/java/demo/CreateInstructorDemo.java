@@ -39,8 +39,14 @@ public class CreateInstructorDemo {
 		try	{
 			// now use the session object to save/retrieve Java objects
 			// create an Instructor object
-			Instructor tempInstructor = new Instructor("Madhukar", "Mani","madhumani1@gmail.com");
-			InstructorDetail tempInstructorDetail = new InstructorDetail("http://youtube.com","Playing chess!!!");
+			//Instructor tempInstructor = new Instructor("Madhukar", "Mani","madhumani1@gmail.com");
+			//InstructorDetail tempInstructorDetail = new InstructorDetail("http://youtube.com","Playing Chess!!!");
+			
+			//Instructor tempInstructor = new Instructor("Priyanka", "Bhadran","prinku4u@gmail.com");
+			//InstructorDetail tempInstructorDetail = new InstructorDetail("http://instagram.com","Photography!!!");
+			
+			Instructor tempInstructor = new Instructor("Neil", "Martis","neil.martis@gmail.com");
+			InstructorDetail tempInstructorDetail = new InstructorDetail("http://usa.com","America!!!");
 			
 			// associate the objects together
 			tempInstructor.setInstructorDetail(tempInstructorDetail);

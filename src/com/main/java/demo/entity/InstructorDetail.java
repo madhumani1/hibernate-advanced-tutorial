@@ -3,11 +3,13 @@
  */
 package com.main.java.demo.entity;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 /**
@@ -36,6 +38,13 @@ public class InstructorDetail {
 	
 	@Column(name="hobby")
 	private String hobby;
+	
+	/**
+	 * add new field to make bidirectional 1-1 relation with Instructor, add @onetoone annotation.
+	 * cascade ensuer if I delete an Instructor detail, it automatically deletes InstructorDetail
+	 */
+	@OneToOne(mappedBy = "instructorDetail", cascade=CascadeType.ALL)
+	private Instructor instructor; 
 
 	/**
 	 * @return the id
@@ -94,6 +103,20 @@ public class InstructorDetail {
 	public InstructorDetail(String youtubeChannel, String hobby) {
 		this.youtubeChannel = youtubeChannel;
 		this.hobby = hobby;
+	}
+
+	/**
+	 * @return the instructor
+	 */
+	public Instructor getInstructor() {
+		return instructor;
+	}
+
+	/**
+	 * @param instructor the instructor to set
+	 */
+	public void setInstructor(Instructor instructor) {
+		this.instructor = instructor;
 	}
 
 	@Override
